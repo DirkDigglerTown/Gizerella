@@ -1,0 +1,43 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  solana-bot:
+    build:
+      context: .
+      dockerfile: scripts/deploy/Dockerfile
+    env_file:
+      - app_config/.env
+    networks:
+      - solana-net
+    volumes:
+      - meme-data:/app/data
+      - ./logs:/app/logs
+    user: "1001:1001"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "scripts/deploy/healthcheck.py"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: '1.5'
+          memory: 512M
+
+volumes:
+  meme-data:
+    driver: local
+    driver_opts:
+      type: none
+      o: uid=1001,gid=1001
+      device: /opt/solana-meme-bot/data
+
+networks:
+  solana-net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.20.0.0/24

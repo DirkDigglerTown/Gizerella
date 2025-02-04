@@ -1,0 +1,6 @@
+{
+  "min_liquidity": 80000,
+  "min_market_cap": 150000,
+  "max_market_cap": 11000000,
+  "min_5m_volume": 150000
+}

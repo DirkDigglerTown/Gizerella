@@ -1,0 +1,16 @@
+[Unit]
+Description=Solana Meme Coin Bot
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=botuser
+WorkingDirectory=/opt/solana-meme-bot
+ExecStart=/opt/solana-meme-bot/venv/bin/python -m bot.bot
+Environment="PYTHONPATH=/opt/solana-meme-bot"
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,6 @@
+CD C:\Users\justi\Discord Bot\solana-meme-bot
+
+pip install -r scripts/requirements.txt
+
+python bot/bot.py
+

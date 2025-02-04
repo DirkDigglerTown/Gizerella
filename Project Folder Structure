@@ -1,0 +1,33 @@
+solana-meme-bot/
+├── src/
+│   ├── app_config/
+│   │   ├── __init__.py
+│   │   ├── settings.py
+│   │   └── .env
+│   └── bot/
+│       ├── __init__.py
+│       ├── bot.py          # Main bot instance
+│       ├── commands.py     # Bot commands
+│       ├── tasks.py        # NEW: Scheduled tasks
+│       ├── api_client.py   # NEW: API/scraping logic
+│       ├── filters.py      # Coin filtering logic
+│       └── embeds.py       # Discord embeds
+├── tests/
+│   ├── __init__.py
+│   ├── conftest.py         # Pytest fixtures
+│   ├── test_bot.py 
+│   └── test_api_client.py
+├── docker/
+│   ├── docker-compose.yml  # Moved from scripts/
+│   └── Dockerfile
+├── requirements/
+│   ├── base.txt            # Split requirements
+│   ├── dev.txt
+│   └── prod.txt
+├── data/
+│   ├── filters.json        
+│   └── bot.log             
+├── .gitignore              
+├── pyproject.toml          # Replace setup.py
+├── README.md
+└── main.py                 # Entry point

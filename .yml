@@ -1,5 +1,5 @@
-name: AI Code Reviewer
-
+- name: AI Code Review Action
+  uses: aidar-freeed/ai-codereviewer@v2.7.0
 on:
   pull_request:
     types:
